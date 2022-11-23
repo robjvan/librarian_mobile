@@ -37,6 +37,7 @@ class LibrarianApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      themeMode: ThemeMode.light,
       locale: const Locale('en', 'US'),
       title: 'app-title'.tr,
       theme: ThemeData(

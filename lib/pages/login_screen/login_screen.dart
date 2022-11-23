@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(color: Colors.white),
+        // decoration: const BoxDecoration(color: Colors.white),
         width: sw,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
         'Librarian',
         style: TextStyle(
           fontSize: 32,
-          color: Theme.of(context).primaryColor,
+          // color: Theme.of(context).primaryColor,
           fontWeight: FontWeight.bold,
         ),
       );
