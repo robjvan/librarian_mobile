@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:librarian_mobile/widgets/custom_bottom_appbar.widget.dart';
 import 'package:librarian_mobile/widgets/navigation_drawer.dart';
 
 class DashboardScreen extends StatelessWidget {
+  static GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   const DashboardScreen({super.key});
 
   static String routeName = '/dashboard';
@@ -12,11 +14,11 @@ class DashboardScreen extends StatelessWidget {
     // final String authToken = box.read('authToken');
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
-      ),
+      key: scaffoldKey,
       drawer: const NavigationDrawer(),
+      bottomNavigationBar: CustomBottomAppBar(
+        action: () => scaffoldKey.currentState!.openDrawer(),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

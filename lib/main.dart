@@ -40,9 +40,13 @@ class LibrarianApp extends StatelessWidget {
       locale: const Locale('en', 'US'),
       title: 'app-title'.tr,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      darkTheme: ThemeData.dark().copyWith(
+        primaryColor: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),    
       debugShowCheckedModeBanner: false,
       // initialRoute: LoadingScreen.routeName, //TODO: Add load screen
       initialRoute: LoginScreen.routeName,

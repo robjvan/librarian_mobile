@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:librarian_mobile/pages/dashboard_screen/dashboard_screen.dart';
 import 'package:librarian_mobile/pages/library_screen/library_screen.dart';
 import 'package:librarian_mobile/pages/login_screen/login_screen.dart';
+import 'package:librarian_mobile/pages/settings_screen/settings_screen.dart';
 import 'package:librarian_mobile/pages/shopping_list_screen/shopping_list_screen.dart';
 
 class NavigationDrawer extends Drawer {
@@ -16,30 +17,26 @@ class NavigationDrawer extends Drawer {
             child: Column(
               children: <Widget>[
                 _buildNavigationRow(
-                  context,
                   navRoute: DashboardScreen.routeName,
                   iconData: Icons.menu,
                   label: 'Dashboard',
                 ),
                 _buildNavigationRow(
-                  context,
                   navRoute: LibraryScreen.routeName,
                   iconData: Icons.cookie_outlined,
                   label: 'My Library',
                 ),
                 _buildNavigationRow(
-                  context,
                   navRoute: ShoppingListScreen.routeName,
                   iconData: Icons.shopping_bag_outlined,
                   label: 'Shopping List',
                 ),
                 Expanded(child: Container()),
-                // _buildNavigationRow(
-                //   context,
-                //   navRoute: SettingsScreen.routeName,
-                //   iconData: Icons.settings_outlined,
-                //   label: 'Settings',
-                // ),
+                _buildNavigationRow(
+                  navRoute: SettingsScreen.routeName,
+                  iconData: Icons.settings_outlined,
+                  label: 'Settings',
+                ),
                 _buildLogoutButton(context),
               ],
             ),
@@ -52,17 +49,16 @@ class NavigationDrawer extends Drawer {
         child: const Text('Logout'),
       );
 
-  Widget _buildNavigationRow(
-    final BuildContext context, {
+  Widget _buildNavigationRow({
     required final String navRoute,
     required final IconData iconData,
     required final String label,
   }) =>
       TextButton(
-        onPressed: () => Navigator.pushNamed(
-          context,
-          navRoute,
-        ),
+        // onPressed: () => Navigator.pushReplacementNamed(
+        //   navRoute,
+        // ),
+        onPressed: () => Get.offAllNamed(navRoute),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Row(
