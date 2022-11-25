@@ -15,7 +15,7 @@ class LibraryScreen extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       floatingActionButton: const LibraryFab(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       bottomNavigationBar: CustomBottomAppBar(
         action: () => scaffoldKey.currentState!.openDrawer(),
       ),
@@ -26,7 +26,7 @@ class LibraryScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               const Text('Hello from LibraryScreen'),
-              Text(Get.isDarkMode.toString())
+              Text(Get.isDarkMode.toString()),
             ],
           ),
         ),

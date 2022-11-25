@@ -20,20 +20,38 @@ class _NewBookFormState extends State<NewBookForm> {
     descriptionController.dispose();
   }
 
+  List<Widget> _buildChildren() {
+    var children = <Text>[];
+    for (int i = 0; i < 100; i++) {
+      children.add(Text('text ${i + 1}'));
+    }
+    return children;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
-        child: SizedBox(
-          height: Get.height,
-          child: SingleChildScrollView(
-            child: Column(
+    final double sw = MediaQuery.of(context).size.width;
+
+    return Form(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: sw,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                //
+                const Text('Title:'),
+                TextFormField(
+                  maxLength: 32,
+                  // decoration: InputDecoration(
+                  //   hintText: 'userName',
+                  // ),
+                ),
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }

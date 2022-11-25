@@ -53,8 +53,7 @@ class _LibraryFabState extends State<LibraryFab> {
             child: const Icon(Icons.list_alt),
             label: 'Manually enter details to add a book',
             onTap: () {
-              // TODO(Rob): Add logic to manually enter/add a book
-              // Get.off(NewBookScreen.routeName),
+              Get.off(() => const NewBookScreen());
             }),
       ],
     );
