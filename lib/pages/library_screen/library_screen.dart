@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:librarian_mobile/widgets/custom_bottom_appbar.widget.dart';
-import 'package:librarian_mobile/widgets/custom_fab.widget.dart';
+import 'package:librarian_mobile/widgets/library_fab.widget.dart';
 import 'package:librarian_mobile/widgets/navigation_drawer.dart';
 
 class LibraryScreen extends StatelessWidget {
@@ -14,7 +14,7 @@ class LibraryScreen extends StatelessWidget {
   Widget build(final BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      floatingActionButton: const CustomFab(),
+      floatingActionButton: const LibraryFab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       bottomNavigationBar: CustomBottomAppBar(
         action: () => scaffoldKey.currentState!.openDrawer(),
