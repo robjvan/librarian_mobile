@@ -8,7 +8,7 @@ class CustomBottomAppBar extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return BottomAppBar(
-      shape: const CircularNotchedRectangle(),
+      // shape: const CircularNotchedRectangle(),
       notchMargin: 8.0,
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.start,
