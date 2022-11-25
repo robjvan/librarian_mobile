@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:librarian_mobile/api/books_api.dart';
 import 'package:librarian_mobile/models/book.model.dart';
 import 'package:librarian_mobile/pages/library_screen/library_screen.dart';
-import 'package:librarian_mobile/widgets/library_fab.widget.dart';
 
 class NewBookForm extends StatefulWidget {
   const NewBookForm({super.key});
@@ -14,11 +13,13 @@ class NewBookForm extends StatefulWidget {
 }
 
 class _NewBookFormState extends State<NewBookForm> {
+  final BooksApi booksApi = BooksApi();
   final TextEditingController titleController = TextEditingController();
   final TextEditingController authorController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController pageCountController = TextEditingController();
   final TextEditingController publishYearController = TextEditingController();
+  final TextEditingController publisherController = TextEditingController();
   final TextEditingController isbn10Controller = TextEditingController();
   final TextEditingController isbn13Controller = TextEditingController();
 
@@ -34,6 +35,7 @@ class _NewBookFormState extends State<NewBookForm> {
     descriptionController.dispose();
     pageCountController.dispose();
     publishYearController.dispose();
+    publisherController.dispose();
     isbn10Controller.dispose();
     isbn13Controller.dispose();
     super.dispose();
@@ -42,20 +44,21 @@ class _NewBookFormState extends State<NewBookForm> {
   void submitFunction() {
     // Grab values from various fields, send off to API for processing
     Book newBook = Book(
-        title: titleController.text,
-        description: descriptionController.text,
-        pageCount: int.parse(pageCountController.text),
-        publishYear: int.parse(publishYearController.text),
-        author: authorController.text,
-        haveRead: haveRead,
-        inFavesList: inFavesList,
-        inShoppingList: inShoppingList,
-        inWishlist: inWishlist,
-        isMature: isMature,
-        isbn10: int.parse(isbn10Controller.text),
-        isbn13: int.parse(isbn13Controller.text),
-        publisher: publishYearController.text);
-    BooksApi.addNewBook(newBook);
+      title: titleController.text,
+      description: descriptionController.text,
+      pageCount: int.parse(pageCountController.text),
+      publishYear: int.parse(publishYearController.text),
+      author: authorController.text,
+      haveRead: haveRead,
+      inFavesList: inFavesList,
+      inShoppingList: inShoppingList,
+      inWishlist: inWishlist,
+      isMature: isMature,
+      isbn10: int.parse(isbn10Controller.text),
+      isbn13: int.parse(isbn13Controller.text),
+      publisher: publisherController.text,
+    );
+    booksApi.addNewBook(newBook);
   }
 
   @override
@@ -69,6 +72,7 @@ class _NewBookFormState extends State<NewBookForm> {
           _buildAuthorField(),
           _buildDescriptionField(),
           _buildPageCountField(),
+          _buildPublisherField(),
           _buildPublishYearField(),
           _buildCheckboxFields(),
           _buildIsbnFields(),
@@ -132,6 +136,14 @@ class _NewBookFormState extends State<NewBookForm> {
     );
   }
 
+  Widget _buildPublisherField() {
+    return _genericInputField(
+      label: 'Publisher:',
+      hintText: '"Amblin"',
+      controller: publisherController,
+    );
+  }
+
   Widget _buildIsbnFields() {
     return Column(
       children: [
@@ -150,7 +162,6 @@ class _NewBookFormState extends State<NewBookForm> {
   }
 
   Widget _buildCheckboxFields() {
-    // haveRead, inWishList, inFavesList, inShoppingList, isMature
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Column(
