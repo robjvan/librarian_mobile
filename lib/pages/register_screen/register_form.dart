@@ -6,15 +6,27 @@ import 'package:librarian_mobile/controllers/password_visibilty.controller.dart'
 import 'package:librarian_mobile/pages/login_screen/login_screen.dart';
 import 'package:librarian_mobile/pages/register_screen/register_user.dto.dart';
 
-class RegisterForm extends StatelessWidget {
+class RegisterForm extends StatefulWidget {
   RegisterForm({super.key});
+
+  @override
+  State<RegisterForm> createState() => _RegisterFormState();
+}
+
+class _RegisterFormState extends State<RegisterForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    usernameController.dispose();
+    passwordController.dispose();
+  }
 
   @override
   Widget build(final BuildContext context) {
-    final TextEditingController usernameController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-
     final Map<String, dynamic> controllers = <String, dynamic>{
       'username': usernameController,
       'password': passwordController,

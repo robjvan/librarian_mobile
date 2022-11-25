@@ -7,17 +7,29 @@ import 'package:librarian_mobile/controllers/password_visibilty.controller.dart'
 import 'package:librarian_mobile/pages/login_screen/login_user.dto.dart';
 import 'package:librarian_mobile/pages/register_screen/register_screen.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
   static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(final BuildContext context) {
-    final TextEditingController usernameController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
+  State<LoginForm> createState() => _LoginFormState();
+}
 
+class _LoginFormState extends State<LoginForm> {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    usernameController.dispose();
+    passwordController.dispose();
+  }
+
+  @override
+  Widget build(final BuildContext context) {
     return Form(
-      key: formKey,
+      key: LoginForm.formKey,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -52,7 +64,7 @@ class LoginForm extends StatelessWidget {
         ),
       ),
       onPressed: () async {
-        if (formKey.currentState!.validate()) {
+        if (LoginForm.formKey.currentState!.validate()) {
           await authAPI.signIn(
             LoginDto(
               username: usernameController.text,
