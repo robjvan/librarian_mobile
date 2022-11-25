@@ -1,44 +1,52 @@
 class Book {
-  int id;
+  int? id;
   String title;
-  String description;
-  int pageCount;
-  int authorId;
-  int publisherId;
-  int publishYearId;
-  int userId;
-  bool haveRead;
-  bool inWishlist;
-  bool inShoppingList;
-  bool inFavesList;
-  int isbn10;
-  int isbn13;
-  bool isMature;
-  int rating;
-  String sortTitle;
-  String sortAuthor;
-  String thumbnailUrl;
+  int? titleId;
+  String? description;
+  int? pageCount;
+  int? authorId;
+  int? publisherId;
+  int? publishYearId;
+  String? author;
+  String? publisher;
+  int? publishYear;
+  int? userId;
+  bool? haveRead;
+  bool? inWishlist;
+  bool? inShoppingList;
+  bool? inFavesList;
+  int? isbn10;
+  int? isbn13;
+  bool? isMature;
+  int? rating;
+  String? sortTitle;
+  String? sortAuthor;
+  String? thumbnailUrl;
 
   Book({
-    required this.id,
+    this.id,
     required this.title,
-    required this.userId,
-    required this.description,
-    required this.pageCount,
-    required this.authorId,
-    required this.publisherId,
-    required this.publishYearId,
-    required this.haveRead,
-    required this.inWishlist,
-    required this.inShoppingList,
-    required this.inFavesList,
-    required this.isbn10,
-    required this.isbn13,
-    required this.isMature,
-    required this.rating,
-    required this.sortTitle,
-    required this.sortAuthor,
-    required this.thumbnailUrl,
+    this.titleId,
+    this.userId,
+    this.description,
+    this.pageCount,
+    this.authorId,
+    this.author,
+    this.publisherId,
+    this.publisher,
+    this.publishYearId,
+    this.publishYear,
+    this.haveRead,
+    this.inWishlist,
+    this.inShoppingList,
+    this.inFavesList,
+    this.isbn10,
+    this.isbn13,
+    this.isMature,
+    this.rating,
+    this.sortTitle,
+    this.sortAuthor,
+    this.thumbnailUrl,
   });
 
   factory Book.fromJson(final Map<String, dynamic> json) => Book(
@@ -63,25 +71,25 @@ class Book {
         thumbnailUrl: json['thumbnailUrl'],
       );
 
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id,
-        'title': title,
-        'userId': userId,
-        'description': description,
-        'pageCount': pageCount,
-        'authorId': authorId,
-        'publisherId': publisherId,
-        'publishYearId': publishYearId,
-        'haveRead': haveRead,
-        'inWishlist': inWishlist,
-        'inShoppingList': inShoppingList,
-        'inFavesList': inFavesList,
-        'isbn10': isbn10,
-        'isbn13': isbn13,
-        'isMature': isMature,
-        'rating': rating,
-        'sortTitle': sortTitle,
-        'sortAuthor': sortAuthor,
-        'thumbnailUrl': thumbnailUrl,
-      };
+  // Map<String, dynamic> toJson() => <String, dynamic>{
+  //       'id': id,
+  //       'title': title,
+  //       'userId': userId,
+  //       'description': description,
+  //       'pageCount': pageCount,
+  //       'authorId': authorId,
+  //       'publisherId': publisherId,
+  //       'publishYearId': publishYearId,
+  //       'haveRead': haveRead,
+  //       'inWishlist': inWishlist,
+  //       'inShoppingList': inShoppingList,
+  //       'inFavesList': inFavesList,
+  //       'isbn10': isbn10,
+  //       'isbn13': isbn13,
+  //       'isMature': isMature,
+  //       'rating': rating,
+  //       'sortTitle': sortTitle,
+  //       'sortAuthor': sortAuthor,
+  //       'thumbnailUrl': thumbnailUrl,
+  //     };
 }
