@@ -1,31 +1,23 @@
 class Book {
   int? id;
   String title;
-  // int? titleId;
   String? description;
-  // int? descriptionId;
   int? pageCount;
   String? author;
-  // int? authorId;
   String? publisher;
-  // int? publisherId;
   int? publishYear;
-  // int? publishYearId;
   int? userId;
   bool? haveRead;
   bool? inWishlist;
   bool? inShoppingList;
   bool? inFavesList;
   int? isbn10;
-  // int? isbn10Id;
   int? isbn13;
-  // int? isbn13Id;
   bool? isMature;
   int? rating;
   String? sortTitle;
   String? sortAuthor;
   String? thumbnailUrl;
-  // String? thumbnailUrlId;
 
   Book({
     this.id,
@@ -95,8 +87,7 @@ class Book {
       );
 
   // Convert a book object to a JSON string
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id,
+  Map<String, dynamic> toCreateBookDto() => <String, dynamic>{
         'title': title,
         'description': description,
         'pageCount': pageCount,
