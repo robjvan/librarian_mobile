@@ -6,6 +6,7 @@ import 'package:librarian_mobile/api/providers/books_api.provder.dart';
 import 'package:librarian_mobile/controllers/user_data.controller.dart';
 import 'package:librarian_mobile/models/book.model.dart';
 import 'package:http/http.dart' as http;
+import 'package:librarian_mobile/pages/library_screen/library_screen.dart';
 
 class BooksApi {
   final BooksAPIProvider _booksAPIProvider = BooksAPIProvider();
@@ -34,9 +35,8 @@ class BooksApi {
     // TODO: Add error handling:
     // 400 - bad request, etc
 
-    // if (response.statusCode != 201) {}
-    // if (result) {
-    //   return result;
-    // }
+    if (response!.statusCode == 201) {
+      Get.offAll(LibraryScreen());
+    }
   }
 }
