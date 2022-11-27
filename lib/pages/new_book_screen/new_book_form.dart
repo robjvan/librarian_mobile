@@ -43,22 +43,31 @@ class _NewBookFormState extends State<NewBookForm> {
 
   void submitFunction() {
     // Grab values from various fields, send off to API for processing
-    Book newBook = Book(
-      title: titleController.text,
-      description: descriptionController.text,
-      pageCount: int.parse(pageCountController.text),
-      publishYear: int.parse(publishYearController.text),
-      author: authorController.text,
-      haveRead: haveRead,
-      inFavesList: inFavesList,
-      inShoppingList: inShoppingList,
-      inWishlist: inWishlist,
-      isMature: isMature,
-      isbn10: int.parse(isbn10Controller.text),
-      isbn13: int.parse(isbn13Controller.text),
-      publisher: publisherController.text,
+    booksApi.addNewBook(
+      Book(
+        title: titleController.text,
+        description: descriptionController.text,
+        pageCount: pageCountController.text.isNotEmpty
+            ? int.parse(pageCountController.text)
+            : null,
+        publishYear: publishYearController.text.isNotEmpty
+            ? int.parse(publishYearController.text)
+            : null,
+        author: authorController.text,
+        haveRead: haveRead,
+        inFavesList: inFavesList,
+        inShoppingList: inShoppingList,
+        inWishlist: inWishlist,
+        isMature: isMature,
+        isbn10: isbn10Controller.text.isNotEmpty
+            ? int.parse(isbn10Controller.text)
+            : null,
+        isbn13: isbn13Controller.text.isNotEmpty
+            ? int.parse(isbn13Controller.text)
+            : null,
+        publisher: publisherController.text,
+      ),
     );
-    booksApi.addNewBook(newBook);
   }
 
   @override
