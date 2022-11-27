@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:librarian_mobile/pages/new_book_screen/new_book_form.dart';
 
 class NewBookScreen extends StatelessWidget {
