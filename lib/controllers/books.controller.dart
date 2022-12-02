@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:librarian_mobile/models/book.model.dart';
 
-class UserDataController extends GetxController {
+class BooksController extends GetxController {
   // TODO(Rob): Download DB to local list for on-device processing?
   // TODO(Rob): When an action is taken, update both the local list and backend DB?
 
