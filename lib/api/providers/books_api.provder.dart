@@ -12,55 +12,6 @@ class BooksAPIProvider {
   final String _apiUrl = 'api/v1/books';
   final AuthController authController = Get.put(AuthController());
 
-  // // Get titleId from DB (backend will create if needed)
-  // Future<void> getTitleId(final String title) async {
-  //   // TODO(Rob): Add logic to grab title ID from backend
-
-  //   return await null;
-  // }
-
-  // // Get authorId from DB
-  // Future<void> getAuthorId(final String author) async {
-  //   // TODO(Rob): Add logic to grab title ID from backend
-
-  //   return await null;
-  // }
-
-  // // Get descriptionId from DB
-  // Future<void> getDescriptionId(final String author) async {
-  //   // TODO(Rob): Add logic to grab title ID from backend
-
-  //   return await null;
-  // }
-
-  // // Get publisherId from DB
-  // Future<void> getPublisherId(final String publisher) async {
-  //   // TODO(Rob): Add logic to grab title ID from backend
-
-  //   return await null;
-  // }
-
-  // // Get publishYearId from DB
-  // Future<void> getPublishYearId(final int year) async {
-  //   // TODO(Rob): Add logic to grab title ID from backend
-
-  //   return await null;
-  // }
-
-  // // Get isbn10 from DB
-  // Future<void> getIsbn10Id(final int year) async {
-  //   // TODO(Rob): Add logic to grab title ID from backend
-
-  //   return await null;
-  // }
-
-  // // Get isbn13 from DB
-  // Future<void> getIsbn13Id(final int year) async {
-  //   // TODO(Rob): Add logic to grab title ID from backend
-
-  //   return await null;
-  // }
-
   // save new book to DB
   Future<http.Response> saveNewBook(final Book book) {
     final Uri saveUrl = config.getAPIUrl().resolve('$_apiUrl');
@@ -74,5 +25,13 @@ class BooksAPIProvider {
       },
       body: jsonEncode(book.toCreateBookDto()),
     );
+  }
+
+  Future<http.Response> fetchBooks() {
+    final Uri fetchUrl = config.getAPIUrl().resolve('$_apiUrl');
+    final String token = authController.authToken;
+
+    return http.get(fetchUrl,
+        headers: <String, String>{'Authorization': 'Bearer $token'});
   }
 }
