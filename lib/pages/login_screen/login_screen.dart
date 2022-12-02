@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:librarian_mobile/controllers/api_state.controller.dart';
+import 'package:librarian_mobile/controllers/books.controller.dart';
 import 'package:librarian_mobile/pages/login_screen/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -11,6 +12,9 @@ class LoginScreen extends StatelessWidget {
   Widget build(final BuildContext context) {
     final double sw = Get.width;
     final ApiStateController apiState = Get.put(ApiStateController());
+    final BooksController booksController = Get.put(
+      BooksController(),
+    );
 
     return Scaffold(
       body: Container(
