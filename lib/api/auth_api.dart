@@ -8,7 +8,7 @@ import 'package:librarian_mobile/api/providers/auth_api.provider.dart';
 import 'package:librarian_mobile/controllers/api_state.controller.dart';
 import 'package:librarian_mobile/controllers/auth.controller.dart';
 import 'package:librarian_mobile/models/auth_token.model.dart';
-import 'package:librarian_mobile/pages/dashboard_screen/dashboard_screen.dart';
+import 'package:librarian_mobile/pages/library_screen/library_screen.dart';
 import 'package:librarian_mobile/pages/login_screen/login_screen.dart';
 import 'package:librarian_mobile/pages/login_screen/login_user.dto.dart';
 import 'package:librarian_mobile/pages/register_screen/register_user.dto.dart';
@@ -37,7 +37,7 @@ class AuthAPI {
 
           /// Navigate to Dashboard
           _apiState.setLoadingState(false);
-          await Get.off(DashboardScreen.new);
+          await Get.offAll(LibraryScreen.new);
           break;
         case 400:
         case 401:
