@@ -310,7 +310,7 @@ class _NewBookFormState extends State<NewBookForm> {
           maximumSize: const Size(200, 40),
         ),
         onPressed: () {
-          Get.offAll(const LibraryScreen());
+          Get.offAll(() => const LibraryScreen());
         },
         child: const Text('Cancel'),
       ),
